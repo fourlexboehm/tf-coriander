@@ -12,6 +12,8 @@ set -x
 
 if [[ $(uname) == Darwin ]]; then {
     bash util/build_tf_mac.sh
+} elif (($(cat /etc/*-release | grep -ce 'arch') > 0)); then {
+  bash util/build_tf_arch.sh
 } else {
     bash util/build_tf_u1604.sh
 } fi
